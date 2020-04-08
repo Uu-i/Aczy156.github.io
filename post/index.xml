@@ -6,10 +6,28 @@
     <description>Recent content in Posts on The Blog of Aczy156</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 05 Apr 2020 17:16:12 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 08 Apr 2020 20:42:26 +0800</lastBuildDate>
     
 	<atom:link href="http://aczy156.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Common_Algorithm</title>
+      <link>http://aczy156.github.io/post/common_algorithm/</link>
+      <pubDate>Wed, 08 Apr 2020 20:42:26 +0800</pubDate>
+      
+      <guid>http://aczy156.github.io/post/common_algorithm/</guid>
+      <description>最短路 hdu2544 dijkstra找距离当前点中未被刷新过距离起点最值的最小值(!vis[j] &amp;amp;&amp;amp; min(d[j]))拿来刷新到其他点的距离 如果d[v]</description>
+    </item>
+    
+    <item>
+      <title>Dp回文串问题整理</title>
+      <link>http://aczy156.github.io/post/dp%E5%9B%9E%E6%96%87%E4%B8%B2%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/</link>
+      <pubDate>Wed, 08 Apr 2020 20:41:58 +0800</pubDate>
+      
+      <guid>http://aczy156.github.io/post/dp%E5%9B%9E%E6%96%87%E4%B8%B2%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/</guid>
+      <description>回文串dp问题 判断最长回文串 bool dp[i][j]表示从[i,j]这一段是否为回文串 状态转移方程：dp[i][j] = (s[i] == s[j] &amp;amp;&amp;amp; (j-i == 1||dp[i+1]dp[j-1]))?true:false (j &amp;gt; i) j-i == 1 是</description>
+    </item>
     
     <item>
       <title>Linux指令整理</title>
