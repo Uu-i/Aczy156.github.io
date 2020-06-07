@@ -6,10 +6,19 @@
     <description>Recent content on The Blog of Aczy156</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 07 Jun 2020 19:03:25 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 07 Jun 2020 19:28:52 +0800</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Python_Compiling_principle_master</title>
+      <link>/post/python_compiling_principle_master/</link>
+      <pubDate>Sun, 07 Jun 2020 19:28:52 +0800</pubDate>
+      
+      <guid>/post/python_compiling_principle_master/</guid>
+      <description>编译原理课程作业 词法分析器 LL1分析(消去左递归、构造FIRST\FOLLOW集合、模拟) 递归下降分析 算法优先分析 项目地址源代码 https://github.com/Aczy156/Compiling-Principle-Work 项目结构 data</description>
+    </item>
     
     <item>
       <title>阿里云CentOS7部署JavaWeb_jar_war_nginx</title>
