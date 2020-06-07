@@ -2,147 +2,147 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>The Blog of Aczy156</title>
-    <link>http://aczy156.github.io/</link>
+    <link>/</link>
     <description>Recent content on The Blog of Aczy156</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 07 Jun 2020 19:03:25 +0800</lastBuildDate>
     
-	<atom:link href="http://aczy156.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>阿里云CentOS7部署JavaWeb_jar_war_nginx</title>
-      <link>http://aczy156.github.io/post/%E9%98%BF%E9%87%8C%E4%BA%91centos7%E9%83%A8%E7%BD%B2javaweb_jar_war_nginx/</link>
+      <link>/post/%E9%98%BF%E9%87%8C%E4%BA%91centos7%E9%83%A8%E7%BD%B2javaweb_jar_war_nginx/</link>
       <pubDate>Sun, 07 Jun 2020 19:03:25 +0800</pubDate>
       
-      <guid>http://aczy156.github.io/post/%E9%98%BF%E9%87%8C%E4%BA%91centos7%E9%83%A8%E7%BD%B2javaweb_jar_war_nginx/</guid>
+      <guid>/post/%E9%98%BF%E9%87%8C%E4%BA%91centos7%E9%83%A8%E7%BD%B2javaweb_jar_war_nginx/</guid>
       <description>(一)第一部分：最基本的jar包运行(无需配置tomcat) [http://60.205.183.114:8081/] 1、配置阿里云(Esc学生服务器、镜像Centos7.7)，并远程连接进入终端</description>
     </item>
     
     <item>
       <title>Common_Algorithm</title>
-      <link>http://aczy156.github.io/post/common_algorithm/</link>
+      <link>/post/common_algorithm/</link>
       <pubDate>Wed, 08 Apr 2020 20:42:26 +0800</pubDate>
       
-      <guid>http://aczy156.github.io/post/common_algorithm/</guid>
+      <guid>/post/common_algorithm/</guid>
       <description>最短路 hdu2544 dijkstra找距离当前点中未被刷新过距离起点最值的最小值(!vis[j] &amp;amp;&amp;amp; min(d[j]))拿来刷新到其他点的距离 如果d[v]</description>
     </item>
     
     <item>
       <title>Dp回文串问题整理</title>
-      <link>http://aczy156.github.io/post/dp%E5%9B%9E%E6%96%87%E4%B8%B2%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/</link>
+      <link>/post/dp%E5%9B%9E%E6%96%87%E4%B8%B2%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/</link>
       <pubDate>Wed, 08 Apr 2020 20:41:58 +0800</pubDate>
       
-      <guid>http://aczy156.github.io/post/dp%E5%9B%9E%E6%96%87%E4%B8%B2%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/</guid>
+      <guid>/post/dp%E5%9B%9E%E6%96%87%E4%B8%B2%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/</guid>
       <description>回文串dp问题 判断最长回文串 bool dp[i][j]表示从[i,j]这一段是否为回文串 状态转移方程：dp[i][j] = (s[i] == s[j] &amp;amp;&amp;amp; (j-i == 1||dp[i+1]dp[j-1]))?true:false (j &amp;gt; i) j-i == 1 是</description>
     </item>
     
     <item>
       <title>Linux指令整理</title>
-      <link>http://aczy156.github.io/post/linux%E6%8C%87%E4%BB%A4%E6%95%B4%E7%90%86/</link>
+      <link>/post/linux%E6%8C%87%E4%BB%A4%E6%95%B4%E7%90%86/</link>
       <pubDate>Sun, 05 Apr 2020 17:16:12 +0800</pubDate>
       
-      <guid>http://aczy156.github.io/post/linux%E6%8C%87%E4%BB%A4%E6%95%B4%E7%90%86/</guid>
+      <guid>/post/linux%E6%8C%87%E4%BB%A4%E6%95%B4%E7%90%86/</guid>
       <description>综合了https://blog.csdn.net/wojiaopanpan/article/details/7286430 博客的一些指令以及</description>
     </item>
     
     <item>
       <title>Python虚拟环境virtualenv的使用</title>
-      <link>http://aczy156.github.io/post/python%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83virtualenv%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <link>/post/python%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83virtualenv%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Sun, 05 Apr 2020 17:13:50 +0800</pubDate>
       
-      <guid>http://aczy156.github.io/post/python%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83virtualenv%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <guid>/post/python%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83virtualenv%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
       <description>Virtualenv用于为某个项目新配置一个独立的python环境而产生 环境为macOS pip安装virtualvenvsudo pip install virtualenv mac</description>
     </item>
     
     <item>
       <title>Mysql安装、配置、连接navicat过程</title>
-      <link>http://aczy156.github.io/post/mysql%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%BF%9E%E6%8E%A5navicat%E8%BF%87%E7%A8%8B/</link>
+      <link>/post/mysql%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%BF%9E%E6%8E%A5navicat%E8%BF%87%E7%A8%8B/</link>
       <pubDate>Tue, 17 Mar 2020 21:54:42 +0800</pubDate>
       
-      <guid>http://aczy156.github.io/post/mysql%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%BF%9E%E6%8E%A5navicat%E8%BF%87%E7%A8%8B/</guid>
+      <guid>/post/mysql%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%BF%9E%E6%8E%A5navicat%E8%BF%87%E7%A8%8B/</guid>
       <description>Windows环境下配置mysql环境 安装包下载 清华源可以直接下载.msi 安装引导。 https://mirrors.tuna.tsinghua.edu.cn/mysql/downloads/ 配置环境变量 按win键，输入“查看高级系统设置”-&amp;g</description>
     </item>
     
     <item>
       <title>区块链 RAFT协议详解</title>
-      <link>http://aczy156.github.io/post/%E5%8C%BA%E5%9D%97%E9%93%BE-raft%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3/</link>
+      <link>/post/%E5%8C%BA%E5%9D%97%E9%93%BE-raft%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3/</link>
       <pubDate>Tue, 17 Mar 2020 21:52:58 +0800</pubDate>
       
-      <guid>http://aczy156.github.io/post/%E5%8C%BA%E5%9D%97%E9%93%BE-raft%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3/</guid>
+      <guid>/post/%E5%8C%BA%E5%9D%97%E9%93%BE-raft%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3/</guid>
       <description>基于RAFT共同机制的用于维护分布式系统中解决分布式储存和共识机制的协议算法。 RAFT包括三种节点：leader、follower、cand</description>
     </item>
     
     <item>
       <title>利用sshKey实现单台机器管理多个GitHub账户</title>
-      <link>http://aczy156.github.io/post/%E5%88%A9%E7%94%A8sshkey%E5%AE%9E%E7%8E%B0%E5%8D%95%E5%8F%B0%E6%9C%BA%E5%99%A8%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AAgithub%E8%B4%A6%E6%88%B7/</link>
+      <link>/post/%E5%88%A9%E7%94%A8sshkey%E5%AE%9E%E7%8E%B0%E5%8D%95%E5%8F%B0%E6%9C%BA%E5%99%A8%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AAgithub%E8%B4%A6%E6%88%B7/</link>
       <pubDate>Thu, 20 Feb 2020 18:01:06 +0800</pubDate>
       
-      <guid>http://aczy156.github.io/post/%E5%88%A9%E7%94%A8sshkey%E5%AE%9E%E7%8E%B0%E5%8D%95%E5%8F%B0%E6%9C%BA%E5%99%A8%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AAgithub%E8%B4%A6%E6%88%B7/</guid>
+      <guid>/post/%E5%88%A9%E7%94%A8sshkey%E5%AE%9E%E7%8E%B0%E5%8D%95%E5%8F%B0%E6%9C%BA%E5%99%A8%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AAgithub%E8%B4%A6%E6%88%B7/</guid>
       <description>踩过的坑 用户在搭建第二个博客的时候[有特殊需求的情况下]，经过搜索发现一个GitHub账户只能有一个GitHub page，然而当我在利用第二</description>
     </item>
     
     <item>
       <title>Vue_router路由跳转</title>
-      <link>http://aczy156.github.io/post/vue_router%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC/</link>
+      <link>/post/vue_router%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC/</link>
       <pubDate>Sun, 16 Feb 2020 12:19:14 +0800</pubDate>
       
-      <guid>http://aczy156.github.io/post/vue_router%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC/</guid>
+      <guid>/post/vue_router%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC/</guid>
       <description>整体框架结构 Vue router 实现界面导航切换。.。 由router/index.js 中的vue-router来指引不同的要跳转的界面 在main.js中添加</description>
     </item>
     
     <item>
       <title>CSP[2019.12]1.2.3题总结</title>
-      <link>http://aczy156.github.io/post/csp2019.12q123%E6%80%BB%E7%BB%93/</link>
+      <link>/post/csp2019.12q123%E6%80%BB%E7%BB%93/</link>
       <pubDate>Sun, 09 Feb 2020 21:54:27 +0800</pubDate>
       
-      <guid>http://aczy156.github.io/post/csp2019.12q123%E6%80%BB%E7%BB%93/</guid>
+      <guid>/post/csp2019.12q123%E6%80%BB%E7%BB%93/</guid>
       <description>CSP[2019.12]1.2.3题总结 1题 找7倍数或者含有7的数。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 // // main.cpp //</description>
     </item>
     
     <item>
       <title>Vue Report</title>
-      <link>http://aczy156.github.io/post/vue-report/</link>
+      <link>/post/vue-report/</link>
       <pubDate>Fri, 07 Feb 2020 15:54:32 +0800</pubDate>
       
-      <guid>http://aczy156.github.io/post/vue-report/</guid>
+      <guid>/post/vue-report/</guid>
       <description>Label &amp;amp; Tag 每一个区块(div)有对应相应的模块的索引， 对应函数有利用@进行对应， 对应css 利用class进行对应： 因为在css也就是在整体的st</description>
     </item>
     
     <item>
       <title>Android开发virtual_device连接mysql始终无法连接的问题</title>
-      <link>http://aczy156.github.io/post/android%E5%BC%80%E5%8F%91virtual_device%E8%BF%9E%E6%8E%A5mysql%E5%A7%8B%E7%BB%88%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <link>/post/android%E5%BC%80%E5%8F%91virtual_device%E8%BF%9E%E6%8E%A5mysql%E5%A7%8B%E7%BB%88%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E7%9A%84%E9%97%AE%E9%A2%98/</link>
       <pubDate>Tue, 04 Feb 2020 19:09:40 +0800</pubDate>
       
-      <guid>http://aczy156.github.io/post/android%E5%BC%80%E5%8F%91virtual_device%E8%BF%9E%E6%8E%A5mysql%E5%A7%8B%E7%BB%88%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <guid>/post/android%E5%BC%80%E5%8F%91virtual_device%E8%BF%9E%E6%8E%A5mysql%E5%A7%8B%E7%BB%88%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
       <description>问题最终还是没能解决，引用其他博客中的一段话 如果想要用云端数据库，一般不建议android设备直接连数据，并不是一个简单的导入jar就可以成</description>
     </item>
     
     <item>
       <title>POJ1113 凸包算法</title>
-      <link>http://aczy156.github.io/post/poj1113-%E5%87%B8%E5%8C%85%E7%AE%97%E6%B3%95/</link>
+      <link>/post/poj1113-%E5%87%B8%E5%8C%85%E7%AE%97%E6%B3%95/</link>
       <pubDate>Tue, 04 Feb 2020 19:03:55 +0800</pubDate>
       
-      <guid>http://aczy156.github.io/post/poj1113-%E5%87%B8%E5%8C%85%E7%AE%97%E6%B3%95/</guid>
+      <guid>/post/poj1113-%E5%87%B8%E5%8C%85%E7%AE%97%E6%B3%95/</guid>
       <description>POJ1113-凸包算法 题目链接：http://poj.org/problem?id=1113 凸包算法的板题，找出凸包，计算凸包的周长加上以</description>
     </item>
     
     <item>
       <title>Second Blog</title>
-      <link>http://aczy156.github.io/post/second-blog/</link>
+      <link>/post/second-blog/</link>
       <pubDate>Tue, 04 Feb 2020 16:13:02 +0800</pubDate>
       
-      <guid>http://aczy156.github.io/post/second-blog/</guid>
+      <guid>/post/second-blog/</guid>
       <description></description>
     </item>
     
     <item>
       <title>First Blog</title>
-      <link>http://aczy156.github.io/post/first-blog/</link>
+      <link>/post/first-blog/</link>
       <pubDate>Tue, 04 Feb 2020 16:12:46 +0800</pubDate>
       
-      <guid>http://aczy156.github.io/post/first-blog/</guid>
+      <guid>/post/first-blog/</guid>
       <description></description>
     </item>
     

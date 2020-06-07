@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: http://aczy156.github.io/sitemap.xml
+Sitemap: sitemap.xml
