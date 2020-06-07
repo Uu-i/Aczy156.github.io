@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>阿里云CentOS7部署JavaWeb_jar_war_nginx - The Blog of Aczy156</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Aczy156" /><meta name="description" content="(一)第一部分：最基本的jar包运行(无需配置tomcat) [http://60.205.183.114:8081/] 1、配置阿里云(Esc学生服务器、镜像Centos7.7)，并远程连接进入终端" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.63.2 with theme even" />
+
+
+<link rel="canonical" href="http://aczy156.github.io/post/%E9%98%BF%E9%87%8C%E4%BA%91centos7%E9%83%A8%E7%BD%B2javaweb_jar_war_nginx/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="阿里云CentOS7部署JavaWeb_jar_war_nginx" />
+<meta property="og:description" content="(一)第一部分：最基本的jar包运行(无需配置tomcat) [http://60.205.183.114:8081/] 1、配置阿里云(Esc学生服务器、镜像Centos7.7)，并远程连接进入终端" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://aczy156.github.io/post/%E9%98%BF%E9%87%8C%E4%BA%91centos7%E9%83%A8%E7%BD%B2javaweb_jar_war_nginx/" />
+<meta property="article:published_time" content="2020-06-07T19:03:25+08:00" />
+<meta property="article:modified_time" content="2020-06-07T19:03:25+08:00" />
+<meta itemprop="name" content="阿里云CentOS7部署JavaWeb_jar_war_nginx">
+<meta itemprop="description" content="(一)第一部分：最基本的jar包运行(无需配置tomcat) [http://60.205.183.114:8081/] 1、配置阿里云(Esc学生服务器、镜像Centos7.7)，并远程连接进入终端">
+<meta itemprop="datePublished" content="2020-06-07T19:03:25&#43;08:00" />
+<meta itemprop="dateModified" content="2020-06-07T19:03:25&#43;08:00" />
+<meta itemprop="wordCount" content="2543">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="阿里云CentOS7部署JavaWeb_jar_war_nginx"/>
+<meta name="twitter:description" content="(一)第一部分：最基本的jar包运行(无需配置tomcat) [http://60.205.183.114:8081/] 1、配置阿里云(Esc学生服务器、镜像Centos7.7)，并远程连接进入终端"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Aczy156&#39;s Note</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Aczy156&#39;s Note</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">阿里云CentOS7部署JavaWeb_jar_war_nginx</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-06-07 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一第一部分最基本的jar包运行无需配置tomcat">(一)第一部分：最基本的jar包运行(无需配置tomcat)</a></li>
+    <li><a href="#二第二部分利用tomcat容器对war包进行处理需要tomcat">(二)第二部分：利用Tomcat容器对war包进行处理(需要Tomcat)</a></li>
+    <li><a href="#三第三部分指定域名进行访问">(三)第三部分：指定域名进行访问</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="一第一部分最基本的jar包运行无需配置tomcat">(一)第一部分：最基本的jar包运行(无需配置tomcat)</h2>
+<p>[<a href="http://60.205.183.114:8081/">http://60.205.183.114:8081/</a>]</p>
+<ul>
+<li>1、配置阿里云(Esc学生服务器、镜像Centos7.7)，并远程连接进入终端。</li>
+<li>2、安装并配置JDK(参考https://www.jianshu.com/p/093413f2a04f)
+a)安装jdk。
+b)寻找jdk路径配置环境变量。
+c)简单的Java hello world测试确保安装成功。</li>
+<li>3、安装并配置mysql(mariadb)(参考<a href="https://blog.csdn.net/DaSo_CSDN/article/details/54754936">https://blog.csdn.net/DaSo_CSDN/article/details/54754936</a>)
+a)安装mysql、mariadb server。
+b)systemctl 开启服务。
+c)  打开端口。(阿里云要在控制台打开，参考https://yq.aliyun.com/articles/701181)
+d)  更改mysql 的root密码，对应于项目配置文件中的密码。</li>
+<li>4、利用scp进行文件传输(参考<a href="https://www.cnblogs.com/tugenhua0707/p/8278772.html">https://www.cnblogs.com/tugenhua0707/p/8278772.html</a>)
+a)传输spring maven 的快照版本用于测试。
+b)传输数据库sql文件。</li>
+<li>5、导入数据库
+a)创建sql文件对应的数据库。
+b)利用文件重定向运行sql文件。
+c)检查数据库是否导入成功</li>
+<li>6、运行jar文件，控制台获取公网IP，本机输入IP:8081测试。</li>
+<li>7、设置后台运行(已设置：<a href="http://60.205.183.114:8081/">http://60.205.183.114:8081/</a>)
+a)contrl+c中止。
+b)然后通过nohup 和 &amp; 来后台运行。
+c)ps通过pid来停止后台运行进程。</li>
+</ul>
+<p>运行结果
+整体过程:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>root@iZ2ze4r3b4xcztbcsey08cZ ~<span class="o">]</span><span class="c1"># history</span>
+    <span class="m">1</span>   <span class="nv">MAKRER</span><span class="o">=</span>SHOW_LOCALE<span class="p">;</span><span class="nb">printf</span> <span class="nv">$MAKRER</span><span class="s2">&#34;&#34;</span><span class="p">;</span> locale<span class="p">;</span> <span class="nv">MAKRER</span><span class="o">=</span>SHOW_LOCALE<span class="p">;</span><span class="nb">printf</span> <span class="nv">$MAKRER</span><span class="s2">&#34;&#34;</span><span class="p">;</span>
+    <span class="m">2</span>  yum install -y mysql
+    <span class="m">3</span>  yum install -y mariadb-server mariadb
+    <span class="m">4</span>  systemctl start mariadb
+    <span class="m">5</span>  systemctl <span class="nb">enable</span> mariadb
+    <span class="m">6</span>  yum install -y mysql-devel
+    <span class="m">7</span>  firewall-cmd --zone<span class="o">=</span>public --add-port<span class="o">=</span>3306/tcp --permanent
+    <span class="m">8</span>   <span class="nv">CHECK_TYPE</span><span class="o">=</span>SHELL<span class="p">;</span> <span class="nb">echo</span> <span class="s2">&#34;</span><span class="s2">INFO=</span><span class="si">${</span><span class="nv">CHECK_TYPE</span><span class="si">}</span><span class="s2"> PID=</span><span class="nv">$$</span><span class="s2"> PPID=</span><span class="nv">$PPID</span><span class="s2"> TTY=</span><span class="k">$(</span>tty<span class="k">)</span><span class="s2"> SHELL=</span><span class="nv">$0</span><span class="s2"> HOME=</span><span class="nv">$HOME</span><span class="s2"> PWD=</span><span class="nv">$PWD</span><span class="s2">| CHECK_SHELL_END</span><span class="s2">&#34;</span>
+    <span class="m">9</span>  ls
+   <span class="m">10</span>  ifconfig
+   <span class="m">11</span>  ls
+   <span class="m">12</span>  yum list
+   <span class="m">13</span>  java -version
+   <span class="m">14</span>  ls
+   <span class="m">15</span>  yum search java-1.8
+   <span class="m">16</span>  yum -y install java-1.8.0-openjdk-devel.x86_64
+   <span class="m">17</span>  java -version
+   <span class="m">18</span>  <span class="nb">cd</span> /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.252.b09-2.el7_8.x86_64/
+   <span class="m">19</span>  <span class="nb">pwd</span>
+   <span class="m">20</span>  vim /etc/profile
+   <span class="m">21</span>  . /etc/profile
+   <span class="m">22</span>  vim Demo.java
+   <span class="m">23</span>  javac  Demo.java
+   <span class="m">24</span>  java Demo
+   <span class="m">25</span>  su
+   <span class="m">26</span>   <span class="nv">MAKRER</span><span class="o">=</span>SHOW_LOCALE<span class="p">;</span><span class="nb">printf</span> <span class="nv">$MAKRER</span><span class="s2">&#34;&#34;</span><span class="p">;</span> locale<span class="p">;</span> <span class="nv">MAKRER</span><span class="o">=</span>SHOW_LOCALE<span class="p">;</span><span class="nb">printf</span> <span class="nv">$MAKRER</span><span class="s2">&#34;&#34;</span><span class="p">;</span>
+   <span class="m">27</span>   <span class="nv">CHECK_TYPE</span><span class="o">=</span>SHELL<span class="p">;</span> <span class="nb">echo</span> <span class="s2">&#34;</span><span class="s2">INFO=</span><span class="si">${</span><span class="nv">CHECK_TYPE</span><span class="si">}</span><span class="s2"> PID=</span><span class="nv">$$</span><span class="s2"> PPID=</span><span class="nv">$PPID</span><span class="s2"> TTY=</span><span class="k">$(</span>tty<span class="k">)</span><span class="s2"> SHELL=</span><span class="nv">$0</span><span class="s2"> HOME=</span><span class="nv">$HOME</span><span class="s2"> PWD=</span><span class="nv">$PWD</span><span class="s2">| CHECK_SHELL_END</span><span class="s2">&#34;</span>
+   <span class="m">28</span>  mysql -u root
+   <span class="m">29</span>  ls
+   <span class="m">30</span>  <span class="nb">pwd</span>
+   <span class="m">31</span>  ifconfig
+   <span class="m">32</span>  ls
+   <span class="m">33</span>  mysql
+   <span class="m">34</span>  mysql -u root jpetstore &lt; jpetstore.sql
+   <span class="m">35</span>  mariadb
+   <span class="m">36</span>  mysql
+   <span class="m">37</span>  java -jar mypetstore-0.0.3-SNAPSHOT.jar
+   <span class="m">38</span>  nohup java -jar mypetstore-0.0.3-SNAPSHOT.jar <span class="p">&amp;</span>
+   <span class="m">39</span>  ps
+   <span class="m">40</span>  <span class="nb">history</span>
+<span class="o">[</span>root@iZ2ze4r3b4xcztbcsey08cZ ~<span class="o">]</span># 
+</code></pre></td></tr></table>
+</div>
+</div><p>控制台开端口
+<img src="https://img-blog.csdnimg.cn/20200531133322417.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzQ1MjA0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>利用scp传文件
+<img src="https://img-blog.csdnimg.cn/2020053113331914.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzQ1MjA0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+运行mysql 文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>root@iZ2ze4r3b4xcztbcsey08cZ ~<span class="o">]</span><span class="c1"># mysql</span>
+Welcome to the MariaDB monitor.  Commands end with <span class="p">;</span> or <span class="se">\g</span>.
+Your MariaDB connection id is <span class="m">3</span>
+Server version: 5.5.65-MariaDB MariaDB Server
+
+Copyright <span class="o">(</span>c<span class="o">)</span> 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type <span class="s1">&#39;help;&#39;</span> or <span class="s1">&#39;\h&#39;</span> <span class="k">for</span> help. Type <span class="s1">&#39;\c&#39;</span> to clear the current input statement.
+
+MariaDB <span class="o">[</span><span class="o">(</span>none<span class="o">)</span><span class="o">]</span>&gt; create database jpetstore<span class="p">;</span>
+Query OK, <span class="m">1</span> row affected <span class="o">(</span>0.00 sec<span class="o">)</span>
+
+MariaDB <span class="o">[</span><span class="o">(</span>none<span class="o">)</span><span class="o">]</span>&gt; quit
+Bye
+<span class="o">[</span>root@iZ2ze4r3b4xcztbcsey08cZ ~<span class="o">]</span><span class="c1"># mysql -u root jpetstore &lt; jpetstore.sql</span> 
+<span class="o">[</span>root@iZ2ze4r3b4xcztbcsey08cZ ~<span class="o">]</span><span class="c1"># mariadb</span>
+-bash: mariadb: <span class="nb">command</span> not found
+<span class="o">[</span>root@iZ2ze4r3b4xcztbcsey08cZ ~<span class="o">]</span><span class="c1"># mysql</span>
+Welcome to the MariaDB monitor.  Commands end with <span class="p">;</span> or <span class="se">\g</span>.
+Your MariaDB connection id is <span class="m">5</span>
+Server version: 5.5.65-MariaDB MariaDB Server
+
+Copyright <span class="o">(</span>c<span class="o">)</span> 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type <span class="s1">&#39;help;&#39;</span> or <span class="s1">&#39;\h&#39;</span> <span class="k">for</span> help. Type <span class="s1">&#39;\c&#39;</span> to clear the current input statement.
+
+MariaDB <span class="o">[</span><span class="o">(</span>none<span class="o">)</span><span class="o">]</span>&gt; show databases<span class="p">;</span>
++--------------------+
+<span class="p">|</span> Database           <span class="p">|</span>
++--------------------+
+<span class="p">|</span> information_schema <span class="p">|</span>
+<span class="p">|</span> jpetstore          <span class="p">|</span>
+<span class="p">|</span> mysql              <span class="p">|</span>
+<span class="p">|</span> performance_schema <span class="p">|</span>
+<span class="p">|</span> <span class="nb">test</span>               <span class="p">|</span>
++--------------------+
+<span class="m">5</span> rows in <span class="nb">set</span> <span class="o">(</span>0.00 sec<span class="o">)</span>
+
+MariaDB <span class="o">[</span><span class="o">(</span>none<span class="o">)</span><span class="o">]</span>&gt; use jpetstore<span class="p">;</span>
+Reading table information <span class="k">for</span> completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB <span class="o">[</span>jpetstore<span class="o">]</span>&gt; show tables<span class="p">;</span>
++---------------------+
+<span class="p">|</span> Tables_in_jpetstore <span class="p">|</span>
++---------------------+
+<span class="p">|</span> account             <span class="p">|</span>
+<span class="p">|</span> addlog              <span class="p">|</span>
+<span class="p">|</span> bannerdata          <span class="p">|</span>
+<span class="p">|</span> browselog           <span class="p">|</span>
+<span class="p">|</span> cart                <span class="p">|</span>
+<span class="p">|</span> cartitem            <span class="p">|</span>
+<span class="p">|</span> category            <span class="p">|</span>
+<span class="p">|</span> inventory           <span class="p">|</span>
+<span class="p">|</span> item                <span class="p">|</span>
+<span class="p">|</span> lineitem            <span class="p">|</span>
+<span class="p">|</span> orders              <span class="p">|</span>
+<span class="p">|</span> orderstatus         <span class="p">|</span>
+<span class="p">|</span> product             <span class="p">|</span>
+<span class="p">|</span> profile             <span class="p">|</span>
+<span class="p">|</span> sequence            <span class="p">|</span>
+<span class="p">|</span> signon              <span class="p">|</span>
+<span class="p">|</span> supplier            <span class="p">|</span>
++---------------------+
+<span class="m">17</span> rows in <span class="nb">set</span> <span class="o">(</span>0.00 sec<span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>访问<a href="http://60.205.183.114:8081/">http://60.205.183.114:8081/</a></p>
+<p><img src="https://img-blog.csdnimg.cn/20200531133310604.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzQ1MjA0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="二第二部分利用tomcat容器对war包进行处理需要tomcat">(二)第二部分：利用Tomcat容器对war包进行处理(需要Tomcat)</h2>
+<p>[<a href="http://60.205.183.114:8080/myJPetStore_war/index.jsp">http://60.205.183.114:8080/myJPetStore_war/index.jsp</a>]</p>
+<ul>
+<li>1、安装Tomcat(参考<a href="https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-centos-7">https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-centos-7</a>)
+a)本地下载tomcat，然后利用scp文件传输
+b)设置访问权限
+c)设置服务配置
+d)输入IP:8080测试是否已经开启服务</li>
+<li>2、数据库/端口配置
+a)数据库root 密码 和服务器对应
+b)端口配置，在上面已经开启了8080端口</li>
+<li>3、利用scp传输war包，放到webapp里边(直接会解析出文件)</li>
+<li>4、重启tomcat服务
+a)bin下的shutdown.sh
+b)bin下的startup.sh</li>
+<li>5、本机测试访问
+a)注意要添加访问的资源的路径/myJPetStore_war/index.jsp，然后tomcat容器会自动到webapp下去寻找
+b)  已设置tomcat容器：<a href="http://60.205.183.114:8080/myJPetStore_war/index.jsp">http://60.205.183.114:8080/myJPetStore_war/index.jsp</a></li>
+</ul>
+<p>运行结果
+整体过程</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">   <span class="m">52</span>  ls
+   <span class="m">53</span>  sudo mkdir /opt/tomcat
+   <span class="m">54</span>  sudo tar xvf apache-tomcat-8*tar.gz -C /opt/tomcat --strip-components<span class="o">=</span><span class="m">1</span>
+   <span class="m">55</span>  <span class="nb">cd</span> /opt/tomcat
+   <span class="m">56</span>  sudo chgrp -R tomcat /opt/tomcat
+   <span class="m">57</span>  sudo chmod -R g+r conf
+   <span class="m">58</span>  sudo chmod g+x conf
+   <span class="m">59</span>  sudo chown -R tomcat webapps/ work/ temp/ logs/
+   <span class="m">60</span>  sudo vi /etc/systemd/system/tomcat.service
+   <span class="m">61</span>  sudo systemctl daemon-reload
+   <span class="m">62</span>  sudo systemctl start tomcat
+   <span class="m">63</span>  sudo systemctl status tomcat
+   <span class="m">64</span>  sudo systemctl <span class="nb">enable</span> tomcat
+   <span class="m">65</span>  ls
+   <span class="m">66</span>  <span class="nb">cd</span> webapps/
+   <span class="m">67</span>  <span class="nb">pwd</span>
+   <span class="m">68</span>  ls
+   <span class="m">69</span>  sudo systemctl restart tomcat
+   <span class="m">70</span>  <span class="nb">cd</span> ../bin/
+   <span class="m">71</span>  ls
+   <span class="m">72</span>  sh shutdown.sh 
+   <span class="m">73</span>  sh startup.sh 
+   <span class="m">74</span>  <span class="nb">history</span>
+<span class="o">[</span>root@iZ2ze4r3b4xcztbcsey08cZ bin<span class="o">]</span># 
+</code></pre></td></tr></table>
+</div>
+</div><p>利用systemctl查看tomcat的状态
+<img src="https://img-blog.csdnimg.cn/20200531133301366.png" alt="在这里插入图片描述"></p>
+<p>验证是否开启tomcat服务
+<img src="https://img-blog.csdnimg.cn/20200531133257207.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzQ1MjA0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>将war包直接传入webapp中</p>
+<p><img src="https://img-blog.csdnimg.cn/20200531134939420.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzQ1MjA0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+然后webapp会自动解析war包(即myJPetStore_war)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>root@iZ2ze4r3b4xcztbcsey08cZ webapps<span class="o">]</span><span class="c1"># pwd</span>
+/opt/tomcat/webapps
+<span class="o">[</span>root@iZ2ze4r3b4xcztbcsey08cZ webapps<span class="o">]</span><span class="c1"># ls</span>
+docs  examples  host-manager  manager  myJPetStore_war  myJPetStore_war.war  ROOT
+</code></pre></td></tr></table>
+</div>
+</div><p>访问<a href="http://60.205.183.114:8080/myJPetStore_war/index.jsp">http://60.205.183.114:8080/myJPetStore_war/index.jsp</a>
+<img src="https://img-blog.csdnimg.cn/20200531133251485.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzQ1MjA0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="三第三部分指定域名进行访问">(三)第三部分：指定域名进行访问</h2>
+<p>[<a href="http://crf.codes/">http://crf.codes/</a>]</p>
+<ul>
+<li>1、配置virmach vps，达到可以通过IP进行访问
+a)过程同第一步，最后设置为后台运行。
+b)  已配置：<a href="http://198.12.120.212:8081/">http://198.12.120.212:8081/</a></li>
+<li>2、服务器安装web server (安装nginx，参考<a href="http://blog.kenyang.net/2019/02/26/upgrade-nginx-to-latest-version-on-centos">http://blog.kenyang.net/2019/02/26/upgrade-nginx-to-latest-version-on-centos</a>)</li>
+<li>3、在域名提供商 name(或者cloudflare)进行DNS域名解析，进行请求中转。
+a)ping 域名(<code>ping crf.codes</code>)查看是否绑定成功。</li>
+<li>4、修改nginx 配置文件
+a)Web server 设定域名
+b)Location 配置index界面
+c)开放Linux系统防火墙
+d)访问crf.code <a href="http://crf.codes/">http://crf.codes/</a></li>
+</ul>
+<p>运行结果
+域名提供商(name)配置dns</p>
+<p><img src="https://img-blog.csdnimg.cn/20200531133243475.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzQ1MjA0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>验证dns是否配置成功
+<code>ping crf.codes</code>，可以看到
+<img src="https://img-blog.csdnimg.cn/20200531133237815.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzQ1MjA0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+修改nginx配置文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">server <span class="o">{</span>
+    listen       80<span class="p">;</span>
+    server_name   crf.codes<span class="p">;</span>
+
+    <span class="c1">#charset koi8-r;</span>
+    access_log  /var/log/nginx/host.access.log  main<span class="p">;</span>
+
+    location / <span class="o">{</span>
+        <span class="c1"># root   /usr/share/nginx/html;</span>
+        index  index.html index.htm<span class="p">;</span>
+        proxy_pass http://127.0.0.1:8081/<span class="p">;</span>
+        <span class="c1"># proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span>
+        <span class="o">}</span>
+
+    <span class="c1">#error_page  404              /404.html;</span>
+
+    <span class="c1"># redirect server error pages to the static page /50x.html</span>
+    #
+    error_page   <span class="m">500</span> <span class="m">502</span> <span class="m">503</span> <span class="m">504</span>  /50x.html<span class="p">;</span>
+    <span class="nv">location</span> <span class="o">=</span> /50x.html <span class="o">{</span>
+        root   /usr/share/nginx/html<span class="p">;</span>
+    <span class="o">}</span>
+
+    <span class="c1"># proxy the PHP scripts to Apache listening on 127.0.0.1:80</span>
+    #
+    <span class="c1">#location ~ \.php$ {</span>
+    <span class="c1">#    proxy_pass   http://127.0.0.1;</span>
+    <span class="c1">#}</span>
+
+    <span class="c1"># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span>
+    #
+    <span class="c1">#location ~ \.php$ {</span>
+    <span class="c1">#    root           html;</span>
+    <span class="c1">#    fastcgi_pass   127.0.0.1:9000;</span>
+    <span class="c1">#    fastcgi_index  index.php;</span>
+    <span class="c1">#    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</span>
+    <span class="c1">#    include        fastcgi_params;</span>
+    <span class="c1">#}</span>
+
+    <span class="c1"># deny access to .htaccess files, if Apache&#39;s document root</span>
+    <span class="c1"># concurs with nginx&#39;s one</span>
+    #
+    <span class="c1">#location ~ /\.ht {</span>
+    <span class="c1">#    deny  all;</span>
+    <span class="c1">#}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>访问crf.codes</p>
+<p><img src="https://img-blog.csdnimg.cn/2020053113322164.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzQ1MjA0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Aczy156</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-06-07
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/common_algorithm/">
+            <span class="next-text nav-default">Common_Algorithm</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://aczy156.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Aczy156</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
