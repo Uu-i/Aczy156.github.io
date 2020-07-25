@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MySQL on Uu-i 小站</title>
+    <link>/tags/mysql/</link>
+    <description>Recent content in MySQL on Uu-i 小站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 17 Mar 2020 21:54:42 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mysql安装、配置、连接navicat过程</title>
+      <link>/post/mysql%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%BF%9E%E6%8E%A5navicat%E8%BF%87%E7%A8%8B/</link>
+      <pubDate>Tue, 17 Mar 2020 21:54:42 +0800</pubDate>
+      
+      <guid>/post/mysql%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%BF%9E%E6%8E%A5navicat%E8%BF%87%E7%A8%8B/</guid>
+      <description>Windows环境下配置mysql环境 安装包下载 清华源可以直接下载.msi 安装引导。 https://mirrors.tuna.tsinghua.edu.cn/mysql/downloads/ 配置环境变量 按win键，输入“查看高级系统设置”-&amp;g</description>
+    </item>
+    
+    <item>
+      <title>Android开发 Virtual device 连接MySQL始终无法连接的问题</title>
+      <link>/post/android%E5%BC%80%E5%8F%91virtual_device%E8%BF%9E%E6%8E%A5mysql%E5%A7%8B%E7%BB%88%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Tue, 04 Feb 2020 19:09:40 +0800</pubDate>
+      
+      <guid>/post/android%E5%BC%80%E5%8F%91virtual_device%E8%BF%9E%E6%8E%A5mysql%E5%A7%8B%E7%BB%88%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <description>问题最终还是没能解决，引用其他博客中的一段话 如果想要用云端数据库，一般不建议android设备直接连数据，并不是一个简单的导入jar就可以成</description>
+    </item>
+    
+  </channel>
+</rss>

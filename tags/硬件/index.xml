@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>硬件 on Uu-i 小站</title>
+    <link>/tags/%E7%A1%AC%E4%BB%B6/</link>
+    <description>Recent content in 硬件 on Uu-i 小站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 20 Jul 2020 21:45:10 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/%E7%A1%AC%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>WF 中南大学网络服务队2020招新 硬件组培训知识</title>
+      <link>/post/wf-%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E9%98%9F2020%E6%8B%9B%E6%96%B0-%E7%A1%AC%E4%BB%B6%E7%BB%84%E7%9F%A5%E8%AF%86/</link>
+      <pubDate>Mon, 20 Jul 2020 21:45:10 +0800</pubDate>
+      
+      <guid>/post/wf-%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E9%98%9F2020%E6%8B%9B%E6%96%B0-%E7%A1%AC%E4%BB%B6%E7%BB%84%E7%9F%A5%E8%AF%86/</guid>
+      <description>首先 Authored By Aczy156 CPU 1型号 1AMD芯片U移动端都具备核显，G为具备核显的，并且后缀无论是否有X，都可以超频，主板也都可以超，芯片组都支持CPU超频。</description>
+    </item>
+    
+  </channel>
+</rss>

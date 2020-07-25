@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>前端 on Uu-i 小站</title>
+    <link>/categories/%E5%89%8D%E7%AB%AF/</link>
+    <description>Recent content in 前端 on Uu-i 小站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 16 Feb 2020 12:19:14 +0800</lastBuildDate>
+    
+	<atom:link href="/categories/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vue_router路由跳转</title>
+      <link>/post/vue_router%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC/</link>
+      <pubDate>Sun, 16 Feb 2020 12:19:14 +0800</pubDate>
+      
+      <guid>/post/vue_router%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC/</guid>
+      <description>整体框架结构 Vue router 实现界面导航切换。.。 由router/index.js 中的vue-router来指引不同的要跳转的界面 在main.js中添加</description>
+    </item>
+    
+    <item>
+      <title>Vue Report</title>
+      <link>/post/vue-report/</link>
+      <pubDate>Fri, 07 Feb 2020 15:54:32 +0800</pubDate>
+      
+      <guid>/post/vue-report/</guid>
+      <description>Label &amp;amp; Tag 每一个区块(div)有对应相应的模块的索引， 对应函数有利用@进行对应， 对应css 利用class进行对应： 因为在css也就是在整体的st</description>
+    </item>
+    
+  </channel>
+</rss>
