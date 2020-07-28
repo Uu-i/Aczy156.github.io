@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Test - Uu-i 小站</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Aczy156" /><meta name="description" content="描述 随着计算机技术的发展，我国逐渐实现了从传统农业到现代农业的转变，正逐步迈向智慧农业。温室是现代农业技术应用的典型场景，其内部环境具有可操" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.63.2 with theme even" />
+
+
+<link rel="canonical" href="/post/ifly_temperature_predict/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Test" />
+<meta property="og:description" content="描述 随着计算机技术的发展，我国逐渐实现了从传统农业到现代农业的转变，正逐步迈向智慧农业。温室是现代农业技术应用的典型场景，其内部环境具有可操" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/ifly_temperature_predict/" />
+<meta property="article:published_time" content="2020-01-28T14:05:44+08:00" />
+<meta property="article:modified_time" content="2020-01-28T14:05:44+08:00" />
+
+<meta itemprop="name" content="Test">
+<meta itemprop="description" content="描述 随着计算机技术的发展，我国逐渐实现了从传统农业到现代农业的转变，正逐步迈向智慧农业。温室是现代农业技术应用的典型场景，其内部环境具有可操">
+<meta itemprop="datePublished" content="2020-01-28T14:05:44&#43;08:00" />
+<meta itemprop="dateModified" content="2020-01-28T14:05:44&#43;08:00" />
+<meta itemprop="wordCount" content="1868">
+
+
+
+<meta itemprop="keywords" content="ACM,算法," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Test"/>
+<meta name="twitter:description" content="描述 随着计算机技术的发展，我国逐渐实现了从传统农业到现代农业的转变，正逐步迈向智慧农业。温室是现代农业技术应用的典型场景，其内部环境具有可操"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Uu-i 小站</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Uu-i 小站</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Test</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-01-28 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%8A%80%E8%83%BD/"> 技能 </a>
+            <a href="/categories/%E7%AE%97%E6%B3%95/"> 算法 </a>
+            </div>
+          <span class="more-meta"> 1868 words </span>
+          <span class="more-meta"> 4 mins read </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#描述">描述</a>
+      <ul>
+        <li><a href="#二赛事任务">二、赛事任务</a></li>
+        <li><a href="#三评审规则">三、评审规则</a></li>
+      </ul>
+    </li>
+    <li><a href="#数据准备工作">数据准备工作</a></li>
+    <li><a href="#eda-探索性数据分析">EDA 探索性数据分析</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="描述">描述</h2>
+<p>随着计算机技术的发展，我国逐渐实现了从传统农业到现代农业的转变，正逐步迈向智慧农业。温室是现代农业技术应用的典型场景，其内部环境具有可操作性，能人为形成适宜植物生长的小型封闭生态系统，提升农产品的产量和质量，因此被广泛应用于农业生产中。在温室的各项环境因子中，作物对温度最为敏感。温度的高低影响植株细胞的酶活性，从而影响作物的生长速度、产量和质量，因此温度对作物生长发育影响极大。为了保证农产品的产量和质量，应保证作物正常生长，需对温室温度进行精确的调控。</p>
+<h3 id="二赛事任务">二、赛事任务</h3>
+<p>温室温度调控需要对温室温度进行精准的预测，本次大赛提供了中国农业大学涿州实验站的温室温度数据作为样本，参赛选手需基于提供的样本构建模型，预测温室温度变化情况。</p>
+<h3 id="三评审规则">三、评审规则</h3>
+<h4 id="1数据说明">1.数据说明：</h4>
+<p>本次比赛为参赛选手提供了温室内外的部分传感器数据，包括温室内的温度、湿度、气压以及温室外的温度、湿度、气压。</p>
+<p>本次比赛分为初赛和复赛两个阶段，初赛阶段提供约30天的传感器数据，其中前20天的数据作为训练数据，后10天的数据用于做温度预测；复赛阶段提供约15天的传感器数据，其中前10天的数据作为训练数据，后5天的数据用于做温度预测。</p>
+<p>注1：训练集的数据，每1分钟1条数据记录；测试集的数据，每30分钟1条数据记录。</p>
+<p>注2：选手不能利用“未来的实际数据”预测“过去的数据”，例如，假设要预测2020/6/18 08:08:08的室内温度，就不能利用这个时间点以后的真实数据进行预测。</p>
+<p>特别说明，温室内的湿度和气压以及温室外的温度、湿度和气压会对温室内的温度产生一定的影响。</p>
+<p><img src="http://aicontest.cn-bj.ufileos.com/2020%2F9.png" alt="img"></p>
+<h4 id="2评估指标">2.评估指标</h4>
+<p>本模型依据提交的结果文件，采用均方误差MSE进行评价。 观测值<img src="http://xfyun-doc.ufile.ucloud.com.cn/1590717863099552/3.png" alt="img">，预测值<img src="http://xfyun-doc.ufile.ucloud.com.cn/1590717898986296/4.png" alt="img">，待预测的记录数n，计算公式如下：<img src="http://xfyun-doc.ufile.ucloud.com.cn/1590717929457957/2.png" alt="img"></p>
+<h2 id="数据准备工作">数据准备工作</h2>
+<ul>
+<li>load dependencies ：五大常用numpy, pandas, matplotlib, seaborn, warnings  和一些基本的依赖</li>
+<li>load data 加载数据：train, test</li>
+<li>check data 数据的基本状态结构，</li>
+</ul>
+<p><strong>加载依赖</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Common five dependencies</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">whitegrid</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">ignore</span><span class="s1">&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>加载数据</strong>：注意路径问题</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># load datall</span>
+<span class="n">df_train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">./data/train/train.csv</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">df_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">./data/test/test.csv</span><span class="s1">&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>检查</strong>-数据结构</p>
+<ul>
+<li>通过利用<code>data.shape</code> 来查看基本的数据(shape为属性)的结构</li>
+<li>通过利用<code>data.columns </code> 来查看数据的attribute属性(columns和shape一样，也是属性)也就是key-value中的key，</li>
+<li>通过利用<code>data.info()</code> 来查看数据的完整信息，包括数据的类型，数据key-value的对应情况，然后还有value中不为null的个数(non-null)，或者也可以通过自己写一个循环，通过遍历data.columns中的所有的属性key对应的所有值的<code>isna()</code>情况并用<code>sum(data[col].isna())</code>来统计和，最后用pd.Dataframe来显示出来即可</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 写成函数，方便后面直接调用</span>
+<span class="k">def</span> <span class="nf">show_info</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="p">:</span>
+    <span class="c1"># basic shape</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">data shape is: {}   sample number {}   attribute number {}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="p">)</span><span class="p">)</span>
+    <span class="c1"># attribute(key)</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">data columns number {}  </span><span class="se">\n</span><span class="s1">all columns: {}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="p">,</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="p">)</span>
+    <span class="c1"># value&#39;s null</span>
+    <span class="n">null_cnt</span> <span class="o">=</span> <span class="p">[</span><span class="nb">sum</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">data all attribute count null:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">null_cnt</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">cnt null</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="p">)</span>  
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>然后调用，并传入想看的数据即可：</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">show_info</span><span class="p">(</span><span class="n">df_train</span><span class="p">)</span>
+<span class="n">show_info</span><span class="p">(</span><span class="n">df_test</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><!-- raw HTML omitted -->
+<p><strong>检查</strong>-数据内容(count, mean, std, min=0%, 25%, 50%, 75%, max=100%)：直接用pd.Dataframe 已经内部封装好的函数<code>data.describe()</code>来渲染即可（注意是函数，不是属性了，因为最后是要显示出一个表格）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df_train</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><table>
+<thead>
+<tr>
+<th align="right"></th>
+<th align="right">time</th>
+<th align="right">年</th>
+<th align="right">月</th>
+<th align="right">日</th>
+<th align="right">小时</th>
+<th align="right">分钟</th>
+<th align="right">秒</th>
+<th align="right">温度(室外)</th>
+<th align="right">湿度(室外)</th>
+<th align="right">气压(室外)</th>
+<th align="right">湿度(室内)</th>
+<th align="right">气压(室内)</th>
+<th align="right">temperature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">count</td>
+<td align="right">2.549700e+04</td>
+<td align="right">25497.0</td>
+<td align="right">25497.000000</td>
+<td align="right">25497.000000</td>
+<td align="right">25497.000000</td>
+<td align="right">25497.000000</td>
+<td align="right">25497.000000</td>
+<td align="right">24837.000000</td>
+<td align="right">24837.000000</td>
+<td align="right">24837.000000</td>
+<td align="right">24807.000000</td>
+<td align="right">24807.000000</td>
+<td align="right">24807.000000</td>
+</tr>
+<tr>
+<td align="right">mean</td>
+<td align="right">1.553344e+09</td>
+<td align="right">2019.0</td>
+<td align="right">3.097619</td>
+<td align="right">20.299369</td>
+<td align="right">12.062870</td>
+<td align="right">29.583441</td>
+<td align="right">29.614974</td>
+<td align="right">16.529235</td>
+<td align="right">74.358014</td>
+<td align="right">983.638640</td>
+<td align="right">72.601443</td>
+<td align="right">981.264248</td>
+<td align="right">16.629089</td>
+</tr>
+<tr>
+<td align="right">std</td>
+<td align="right">5.011791e+05</td>
+<td align="right">0.0</td>
+<td align="right">0.296805</td>
+<td align="right">7.938573</td>
+<td align="right">6.895092</td>
+<td align="right">17.282217</td>
+<td align="right">17.218067</td>
+<td align="right">4.249602</td>
+<td align="right">16.349346</td>
+<td align="right">22.990619</td>
+<td align="right">14.051747</td>
+<td align="right">43.900166</td>
+<td align="right">3.693474</td>
+</tr>
+<tr>
+<td align="right">min</td>
+<td align="right">1.552496e+09</td>
+<td align="right">2019.0</td>
+<td align="right">3.000000</td>
+<td align="right">1.000000</td>
+<td align="right">0.000000</td>
+<td align="right">0.000000</td>
+<td align="right">0.000000</td>
+<td align="right">8.900000</td>
+<td align="right">23.000000</td>
+<td align="right">400.200000</td>
+<td align="right">25.000000</td>
+<td align="right">392.500000</td>
+<td align="right">9.300000</td>
+</tr>
+<tr>
+<td align="right">25%</td>
+<td align="right">1.552917e+09</td>
+<td align="right">2019.0</td>
+<td align="right">3.000000</td>
+<td align="right">16.000000</td>
+<td align="right">6.000000</td>
+<td align="right">15.000000</td>
+<td align="right">15.000000</td>
+<td align="right">13.300000</td>
+<td align="right">64.000000</td>
+<td align="right">979.900000</td>
+<td align="right">64.000000</td>
+<td align="right">980.000000</td>
+<td align="right">13.800000</td>
+</tr>
+<tr>
+<td align="right">50%</td>
+<td align="right">1.553342e+09</td>
+<td align="right">2019.0</td>
+<td align="right">3.000000</td>
+<td align="right">22.000000</td>
+<td align="right">13.000000</td>
+<td align="right">30.000000</td>
+<td align="right">30.000000</td>
+<td align="right">15.900000</td>
+<td align="right">78.000000</td>
+<td align="right">986.100000</td>
+<td align="right">76.000000</td>
+<td align="right">985.900000</td>
+<td align="right">16.100000</td>
+</tr>
+<tr>
+<td align="right">75%</td>
+<td align="right">1.553774e+09</td>
+<td align="right">2019.0</td>
+<td align="right">3.000000</td>
+<td align="right">26.000000</td>
+<td align="right">18.000000</td>
+<td align="right">45.000000</td>
+<td align="right">44.000000</td>
+<td align="right">18.600000</td>
+<td align="right">88.000000</td>
+<td align="right">990.400000</td>
+<td align="right">84.000000</td>
+<td align="right">989.900000</td>
+<td align="right">18.400000</td>
+</tr>
+<tr>
+<td align="right">max</td>
+<td align="right">1.554224e+09</td>
+<td align="right">2019.0</td>
+<td align="right">4.000000</td>
+<td align="right">31.000000</td>
+<td align="right">23.000000</td>
+<td align="right">59.000000</td>
+<td align="right">59.000000</td>
+<td align="right">32.600000</td>
+<td align="right">96.000000</td>
+<td align="right">1082.500000</td>
+<td align="right">91.000000</td>
+<td align="right">1013.700000</td>
+<td align="right">30.100000</td>
+</tr>
+</tbody>
+</table>
+<h2 id="eda-探索性数据分析">EDA 探索性数据分析</h2>
+<p>作图、制表、方程拟合、计算特征量等手段探索数据的结构和规律的一种数据分析方法</p>
+<ul>
+<li>预处理：将train和test进行拼接，然后整体看某个属性的情况</li>
+<li>作图：查看数据其中的结构与规律</li>
+</ul>
+<p><strong>预处理</strong>-用pandas中的concat函数<code>pd.concat([df_train, df_test])</code>把train和test连接
+【为了方便分开，就添加一个type属性(&lsquo;train&rsquo;, &lsquo;test&rsquo;)，来区分train集合和test集合】</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df_train</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">type</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">train</span><span class="s1">&#39;</span>
+<span class="n">df_test</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">type</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">test</span><span class="s1">&#39;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="p">[</span><span class="n">df_train</span><span class="p">,</span> <span class="n">df_test</span><span class="p">]</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>分开：
+由于本来test是没有temperature这个属性的，但是由于拼接了之后和train有这个属性，所以再摘出来就获得了本来没有的这个属性，但是都赋值null了</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">train</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">type</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">train</span><span class="s1">&#39;</span><span class="p">]</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">type</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">test</span><span class="s1">&#39;</span><span class="p">]</span>
+<span class="n">show_info</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
+<span class="n">show_info</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>输出为：「即可发现区别经过拼接和分开之后test增加了一列属性」</p>
+<!-- raw HTML omitted -->
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Aczy156</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-01-28
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/acm/">ACM</a>
+          <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/first-blog/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">First Blog</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://stackexchange.com/users/18654732/aczy156" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/aczy156" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://www.facebook.com/ac.chen.357/" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/in/%E5%86%89%E9%A3%9E-%E9%99%88-9aa2b51a8/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://github.com/Aczy156" class="iconfont icon-github" title="github"></a>
+      <a href="https://gitlab.com/Aczy156" class="iconfont icon-gitlab" title="gitlab"></a>
+  <a href="/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Aczy156</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-168772474-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>
