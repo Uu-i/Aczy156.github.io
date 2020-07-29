@@ -173,5 +173,14 @@
       <description>描述 随着计算机技术的发展，我国逐渐实现了从传统农业到现代农业的转变，正逐步迈向智慧农业。温室是现代农业技术应用的典型场景，其内部环境具有可操</description>
     </item>
     
+    <item>
+      <title>斯特林(Stirling)數介紹與程式計算(C&#43;&#43;)</title>
+      <link>/post/stirling-number/</link>
+      <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/stirling-number/</guid>
+      <description>&lt;p&gt;這學期在學離散數學的代數與集合論，剛好上到了 Stirling 數這一章，老師便叫我們寫個程式來計算 Stirling 數並撰寫實驗報告，要用遞迴和非遞迴方式實現並比較兩者差異，計算公式本來就是遞推，所以用遞迴很好實現，主要是非遞迴的實現思路較為難想，當時其實已經把這篇文章的原型寫好了，最後的時間比較我想要用圖表來呈現，不過當時事物繁忙沒時間研究怎麼繪製，擱到了寒假才繼續完成。&lt;/p&gt;</description>
+    </item>
+    
   </channel>
 </rss>
