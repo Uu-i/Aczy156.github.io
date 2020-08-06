@@ -49,7 +49,7 @@
 <meta itemprop="description" content="描述 随着计算机技术的发展，我国逐渐实现了从传统农业到现代农业的转变，正逐步迈向智慧农业。温室是现代农业技术应用的典型场景，其内部环境具有可操">
 <meta itemprop="datePublished" content="2020-01-28T14:05:44&#43;08:00" />
 <meta itemprop="dateModified" content="2020-01-28T14:05:44&#43;08:00" />
-<meta itemprop="wordCount" content="1868">
+<meta itemprop="wordCount" content="2694">
 
 
 
@@ -138,8 +138,8 @@
             <a href="/categories/%E6%8A%80%E8%83%BD/"> 技能 </a>
             <a href="/categories/%E7%AE%97%E6%B3%95/"> 算法 </a>
             </div>
-          <span class="more-meta"> 1868 words </span>
-          <span class="more-meta"> 4 mins read </span>
+          <span class="more-meta"> 2694 words </span>
+          <span class="more-meta"> 6 mins read </span>
         
       </div>
     </header>
@@ -279,7 +279,47 @@
 <span class="n">show_info</span><span class="p">(</span><span class="n">df_test</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><!-- raw HTML omitted -->
+</div><details><summary>点击展开输出</summary>
+<pre><code>
+data shape is: (25497, 13)   sample number 25497   attribute number 13
+data columns number 13  
+all columns: Index(['time', '年', '月', '日', '小时', '分钟', '秒', '温度(室外)', '湿度(室外)', '气压(室外)',
+       '湿度(室内)', '气压(室内)', 'temperature'],
+      dtype='object')
+data all attribute count null:
+              cnt null
+time                0
+年                   0
+月                   0
+日                   0
+小时                  0
+分钟                  0
+秒                   0
+温度(室外)            660
+湿度(室外)            660
+气压(室外)            660
+湿度(室内)            690
+气压(室内)            690
+temperature       690
+data columns number 12  
+all columns: Index(['time', '年', '月', '日', '小时', '分钟', '秒', '温度(室外)', '湿度(室外)', '气压(室外)',
+       '湿度(室内)', '气压(室内)'],
+      dtype='object')
+data all attribute count null:
+         cnt null
+time           0
+年              0
+月              0
+日              0
+小时             0
+分钟             0
+秒              0
+温度(室外)         2
+湿度(室外)         2
+气压(室外)         2
+湿度(室内)         1
+气压(室内)         1
+</code></pre></details>
 <p><strong>检查</strong>-数据内容(count, mean, std, min=0%, 25%, 50%, 75%, max=100%)：直接用pd.Dataframe 已经内部封装好的函数<code>data.describe()</code>来渲染即可（注意是函数，不是属性了，因为最后是要显示出一个表格）</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -476,8 +516,98 @@
 </code></pre></td></tr></table>
 </div>
 </div><p>输出为：「即可发现区别经过拼接和分开之后test增加了一列属性」</p>
-<!-- raw HTML omitted -->
-
+<details>
+  <summary>Collapsible</summary>
+  ```xml
+  <p>I am xml</p>
+  `` -- should have an extra one, but don't want this closed.
+</details>
+<details>
+  <summary>点击展开输出</summary>
+  <pre>
+  <code>
+  data shape is: (25497, 14)   sample number 25497   attribute number 14
+	data columns number 14  
+	all columns: Index(['time', '年', '月', '日', '小时', '分钟', '秒', '温度(室外)', '湿度(室外)', '气压(室外)',
+  	     '湿度(室内)', '气压(室内)', 'temperature', 'type'],
+    	  dtype='object')
+	data all attribute count null:
+  	            cnt null
+	time                0
+	年                   0
+	月                   0
+	日                   0
+	小时                  0
+	分钟                  0
+	秒                   0
+	温度(室外)            660
+	湿度(室外)            660
+	气压(室外)            660
+	湿度(室内)            690
+	气压(室内)            690
+	temperature       690
+	type                0
+	data shape is: (406, 14)   sample number 406   attribute number 14
+	data columns number 14  
+	all columns: Index(['time', '年', '月', '日', '小时', '分钟', '秒', '温度(室外)', '湿度(室外)', '气压(室外)',
+  	     '湿度(室内)', '气压(室内)', 'temperature', 'type'],
+    	  dtype='object')
+	data all attribute count null:
+  	            cnt null
+	time                0
+	年                   0
+	月                   0
+	日                   0
+	小时                  0
+	分钟                  0
+	秒                   0
+	温度(室外)              2
+	湿度(室外)              2
+	气压(室外)              2
+	湿度(室内)              1
+	气压(室内)              1
+	temperature       406
+	type                0
+  </code>
+  </pre>
+</details>
+<p><strong>作图</strong></p>
+<ul>
+<li>【hue】最好通过给所有数据添加一个属性type，来画图，这样就可以根据type来进行分类，最后在图中呈现出两种不同的数据的走向</li>
+<li>【col】来区分是表格中的哪种属性</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">plot_curve</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">hue</span><span class="p">)</span><span class="p">:</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="p">)</span>
+  <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">time</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">col</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="n">hue</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>调用：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">plot_curve</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">温度(室外)</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">type</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plot_curve</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">湿度(室外)</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">type</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plot_curve</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">湿度(室内)</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">type</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plot_curve</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">气压(室外)</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">type</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plot_curve</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">气压(室内)</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">type</span><span class="s1">&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     <div class="post-copyright">
@@ -506,8 +636,8 @@
             <span class="prev-text nav-default">First Blog</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        <a class="next" href="/post/stirling-number/">
-            <span class="next-text nav-default">斯特林(Stirling)數介紹與程式計算(C&#43;&#43;)</span>
+        <a class="next" href="/post/test2/">
+            <span class="next-text nav-default">Test</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>

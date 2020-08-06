@@ -65,5 +65,23 @@
       <description>描述 随着计算机技术的发展，我国逐渐实现了从传统农业到现代农业的转变，正逐步迈向智慧农业。温室是现代农业技术应用的典型场景，其内部环境具有可操</description>
     </item>
     
+    <item>
+      <title>Test</title>
+      <link>/post/test2/</link>
+      <pubDate>Tue, 28 Jan 2020 14:05:44 +0800</pubDate>
+      
+      <guid>/post/test2/</guid>
+      <description>[Kaggle] House Price 结构化数据(表格)、回归问题(预测房价) 2020.4.20 House Prices V1.0 [Kaggle] Digit Recognizer 结构化数据(利用表格来描述的图片像素点)、分类问题(softmax层多分类) 2020.4.23 Digit</description>
+    </item>
+    
+    <item>
+      <title>Test</title>
+      <link>/post/test3/</link>
+      <pubDate>Tue, 28 Jan 2020 14:05:44 +0800</pubDate>
+      
+      <guid>/post/test3/</guid>
+      <description>数据可视化&amp;ndash;categorical data 离散数据 直方图类型 [单个属性]： 根据不同的种类来区分颜色的【通过利用plotly=&amp;gt;h</description>
+    </item>
+    
   </channel>
 </rss>
