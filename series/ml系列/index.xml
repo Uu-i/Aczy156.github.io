@@ -22,20 +22,29 @@
     
     <item>
       <title>Test</title>
-      <link>/post/test2/</link>
+      <link>/post/test2-%E5%8E%86%E6%AC%A1%E6%AF%94%E8%B5%9B/</link>
       <pubDate>Tue, 28 Jan 2020 14:05:44 +0800</pubDate>
       
-      <guid>/post/test2/</guid>
+      <guid>/post/test2-%E5%8E%86%E6%AC%A1%E6%AF%94%E8%B5%9B/</guid>
       <description>[Kaggle] House Price 结构化数据(表格)、回归问题(预测房价) 2020.4.20 House Prices V1.0 [Kaggle] Digit Recognizer 结构化数据(利用表格来描述的图片像素点)、分类问题(softmax层多分类) 2020.4.23 Digit</description>
     </item>
     
     <item>
       <title>Test</title>
-      <link>/post/test3/</link>
+      <link>/post/test3-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</link>
       <pubDate>Tue, 28 Jan 2020 14:05:44 +0800</pubDate>
       
-      <guid>/post/test3/</guid>
+      <guid>/post/test3-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</guid>
       <description>数据可视化&amp;ndash;categorical data 离散数据 直方图类型 [单个属性]： 根据不同的种类来区分颜色的【通过利用plotly=&amp;gt;h</description>
+    </item>
+    
+    <item>
+      <title>Test</title>
+      <link>/post/test4-feature-engineering%E5%87%A0%E7%A7%8D%E7%BC%96%E7%A0%81/</link>
+      <pubDate>Tue, 28 Jan 2020 14:05:44 +0800</pubDate>
+      
+      <guid>/post/test4-feature-engineering%E5%87%A0%E7%A7%8D%E7%BC%96%E7%A0%81/</guid>
+      <description>Feature Engineering&amp;ndash;拼接、拆分数据 1、直接根据数据量拼接、拆分 1 df = pd.concat([train, test]) 用:来分割，:num表示num之前的所有，num:</description>
     </item>
     
   </channel>
