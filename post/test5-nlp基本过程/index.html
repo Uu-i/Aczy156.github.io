@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Test - Uu-i 小站</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Aczy156" /><meta name="description" content="NLP 1、数据清洗 data cleaning 清洗html中的残留的tag：BeautifulSoup 清洗标点：正则表达式 清洗常用的没有实际意义的词语(a, the)：n" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.63.2 with theme even" />
+
+
+<link rel="canonical" href="/post/test5-nlp%E5%9F%BA%E6%9C%AC%E8%BF%87%E7%A8%8B/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Test" />
+<meta property="og:description" content="NLP 1、数据清洗 data cleaning 清洗html中的残留的tag：BeautifulSoup 清洗标点：正则表达式 清洗常用的没有实际意义的词语(a, the)：n" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/test5-nlp%E5%9F%BA%E6%9C%AC%E8%BF%87%E7%A8%8B/" />
+<meta property="article:published_time" content="2020-01-28T14:05:44+08:00" />
+<meta property="article:modified_time" content="2020-01-28T14:05:44+08:00" />
+
+<meta itemprop="name" content="Test">
+<meta itemprop="description" content="NLP 1、数据清洗 data cleaning 清洗html中的残留的tag：BeautifulSoup 清洗标点：正则表达式 清洗常用的没有实际意义的词语(a, the)：n">
+<meta itemprop="datePublished" content="2020-01-28T14:05:44&#43;08:00" />
+<meta itemprop="dateModified" content="2020-01-28T14:05:44&#43;08:00" />
+<meta itemprop="wordCount" content="1530">
+
+
+
+<meta itemprop="keywords" content="ACM,算法," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Test"/>
+<meta name="twitter:description" content="NLP 1、数据清洗 data cleaning 清洗html中的残留的tag：BeautifulSoup 清洗标点：正则表达式 清洗常用的没有实际意义的词语(a, the)：n"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+  i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+    (i[r].q = i[r].q || []).push(arguments)
+  }, i[r].l = 1 * new Date(); a = s.createElement(o),
+    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+  ga('create', 'UA-168772474-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Uu-i 小站</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Uu-i 小站</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Test</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-01-28 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%8A%80%E8%83%BD/"> 技能 </a>
+            <a href="/categories/%E7%AE%97%E6%B3%95/"> 算法 </a>
+            </div>
+          <span class="more-meta"> 1530 words </span>
+          <span class="more-meta"> 4 mins read </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#nlp">NLP</a>
+      <ul>
+        <li><a href="#1数据清洗-data-cleaning">1、数据清洗 data cleaning</a></li>
+        <li><a href="#2词干提取词根还原-stemmingstemmer">2、词干提取/词根还原 stemming/stemmer</a></li>
+        <li><a href="#3词形还原-lemmatizationlemmatizer">3、词形还原 lemmatization/lemmatizer</a></li>
+        <li><a href="#4利用scikit-learn和词袋提取词汇表得到每个样本的特征向量">4、利用Scikit-learn和词袋提取词汇表，得到每个样本的特征向量</a></li>
+        <li><a href="#5构建model并进行预测">5、构建model并进行预测</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="nlp">NLP</h2>
+<h3 id="1数据清洗-data-cleaning">1、数据清洗 data cleaning</h3>
+<ul>
+<li>清洗html中的残留的tag：BeautifulSoup</li>
+<li>清洗标点：正则表达式</li>
+<li>清洗常用的没有实际意义的词语(a, the)：nltk中的stepwords</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># import basic dependencies</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 具体使用</span>
+<span class="c1"># html残留tag：用BeautifulSoup，实例化对象，然后通过get_text()获取</span>
+<span class="n">bs</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">text_content</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">lxml</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">origin content:</span><span class="se">\n</span><span class="s1">{}</span><span class="se">\n</span><span class="s1"> after use BeautifulSoup to clean html tag:</span><span class="se">\n</span><span class="s1">{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">train</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">text_content</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="p">,</span> <span class="n">bs</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="p">)</span><span class="p">)</span>
+
+<span class="c1"># 标点符号：正则表达式</span>
+<span class="n">letters_only</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">[^a-zA-Z]</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1"> </span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">bs</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="p">)</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">origin content:</span><span class="se">\n</span><span class="s1">{}</span><span class="se">\n</span><span class="s1"> after use re:</span><span class="se">\n</span><span class="s1">{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">bs</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="p">)</span><span class="p">,</span> <span class="n">letters_only</span><span class="p">)</span>
+
+<span class="c1"># 用nltk中导入的stopwords来删除一些常见的没有用的单词，a，the……</span>
+<span class="c1"># 先转换成小写lower case，然后分割split，最后用nltk中的stepwords</span>
+<span class="n">lower_case</span> <span class="o">=</span> <span class="n">letters_only</span><span class="o">.</span><span class="n">lower</span><span class="p">(</span><span class="p">)</span>
+<span class="n">words</span> <span class="o">=</span> <span class="n">lower_case</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="p">)</span>
+<span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">english</span><span class="s1">&#39;</span><span class="p">)</span><span class="p">[</span><span class="p">:</span><span class="mi">20</span><span class="p">]</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">english</span><span class="s1">&#39;</span><span class="p">)</span><span class="p">]</span>
+<span class="n">words</span><span class="p">[</span><span class="p">:</span><span class="mi">20</span><span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>写成一个函数，然后对所有样本逐个遍历</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">data_cleaning</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span><span class="p">:</span>
+  <span class="sa"></span><span class="s2">&#34;&#34;&#34;</span><span class="s2">
+</span><span class="s2"></span><span class="s2">  convert raw to a string of word</span><span class="s2">
+</span><span class="s2"></span><span class="s2">  </span><span class="s2">&#34;&#34;&#34;</span>
+  <span class="c1"># remove html tag</span>
+  <span class="n">text</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">lxml</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="p">)</span>
+  <span class="c1"># remove non-letters</span>
+  <span class="n">letters_only</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">[^a-zA-Z]</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1"> </span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+  <span class="c1"># convert to lower case and spilt to words</span>
+	<span class="n">words</span> <span class="o">=</span> <span class="n">letters_only</span><span class="o">.</span><span class="n">lower</span><span class="p">(</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="p">)</span>
+  <span class="c1"># get stopwords list</span>
+  <span class="n">stops</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">english</span><span class="s1">&#39;</span><span class="p">)</span><span class="p">)</span>
+  <span class="c1"># remove stopwords / get non-stopwords list</span>
+  <span class="n">non_stopwords</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">stops</span><span class="p">]</span>
+  
+  <span class="k">return</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1"> </span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">non_stopwords</span><span class="p">)</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># for 循环遍历</span>
+<span class="n">all_content</span> <span class="o">=</span> <span class="p">[</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">train</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">content</span><span class="s1">&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">)</span><span class="p">:</span>
+    <span class="c1"># If the index is evenly divisible by 1000, print a message</span>
+    <span class="k">if</span><span class="p">(</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="mi">1000</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">Review </span><span class="si">%d</span><span class="s2"> of </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">train</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">content</span><span class="s1">&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">)</span><span class="p">)</span>                                                                  
+    <span class="n">all_content</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">review_to_words</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">content</span><span class="s2">&#34;</span><span class="p">]</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="p">)</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="2词干提取词根还原-stemmingstemmer">2、词干提取/词根还原 stemming/stemmer</h3>
+<ul>
+<li>词干提取是去除单词的<strong>前后缀</strong>【「名次的复数」、「进行时」、「过去式」、「将来时」等】得到词根的过程</li>
+<li>例子：plays, played, playing -&gt; play</li>
+<li>总结：「提取」「缩减/容易」「粒度大，模糊」「应用于搜索场景」</li>
+<li>实现：Porter、Snowball、Lancaster(可以结合nltk)</li>
+</ul>
+<h3 id="3词形还原-lemmatizationlemmatizer">3、词形还原 lemmatization/lemmatizer</h3>
+<ul>
+<li>
+<p>单词的复杂形态转变成最基础的形态。</p>
+</li>
+<li>
+<p>区分与词干提取，并不是简单的前后缀，是更加深层的转换【非规则的过去式、am/is/are:be等】。</p>
+<ul>
+<li>目标一致。词干提取和词形还原的目标均为将词的屈折形态或派生形态简化或归并为词干（stem）或原形的基础形式，都是一种对词的不同形态的统一归并的过程。</li>
+<li>结果部分交叉。词干提取和词形还原不是互斥关系，其结果是有部分交叉的。一部分词利用这两类方法都能达到相同的词形转换效果。如“dogs”的词干为“dog”，其原形也为“dog”。</li>
+<li>主流实现方法类似。目前实现词干提取和词形还原的主流实现方法均是利用语言中存在的规则或利用词典映射提取词干或获得词的原形。</li>
+<li>应用领域相似。主要应用于信息检索和文本、自然语言处理等方面，二者均是这些应用的基本步骤。</li>
+</ul>
+</li>
+<li>
+<p>例子：am, is, are -&gt; be ；<strong>drove -&gt; drive</strong></p>
+</li>
+<li>
+<p>总结：「还原」「转变/复杂，依赖词典」「粒度小，精确」「应用于精细的文本处理如NLP, text mining」</p>
+</li>
+<li>
+<p>实现：利用<code>nltk</code>库中已经包含的英语单词词汇数据库，以及<code>WordNet</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">nltk</span>
+<span class="kn">from</span> <span class="nn">nltk.stem</span> <span class="kn">import</span> <span class="n">WordNetLemmatizer</span>
+<span class="n">lemmatizer</span> <span class="o">=</span> <span class="n">WordNetLemmatizer</span><span class="p">(</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">lemmatizer</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">blogs</span><span class="s2">&#34;</span><span class="p">)</span><span class="p">)</span>
+<span class="c1">#Returns blogimport nltk</span>
+<span class="kn">from</span> <span class="nn">nltk.stem</span> <span class="kn">import</span> <span class="n">WordNetLemmatizer</span>
+<span class="n">lemmatizer</span> <span class="o">=</span> <span class="n">WordNetLemmatizer</span><span class="p">(</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">lemmatizer</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">blogs</span><span class="s2">&#34;</span><span class="p">)</span><span class="p">)</span>
+<span class="c1">#Returns blog</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h3 id="4利用scikit-learn和词袋提取词汇表得到每个样本的特征向量">4、利用Scikit-learn和词袋提取词汇表，得到每个样本的特征向量</h3>
+<ul>
+<li>使用<code>sklearn</code>中的<code>CountVectorizer</code>来获取每个text的特征向量，作为文本的特征【这样转换的话，并<strong>没有考虑时序性</strong>，也就是说所有词袋中的所有单词都是同等的，没有先后顺序，词袋中的所有元素都各自作为一个特征的存在】</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># some basic dependencies</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
+<span class="n">vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span>
+  <span class="n">analyzer</span> <span class="o">=</span> <span class="sa"></span><span class="s2">&#34;</span><span class="s2">word</span><span class="s2">&#34;</span><span class="p">,</span>
+  <span class="n">tokenizer</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+  <span class="n">preprocessor</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+  <span class="n">stop_words</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+  <span class="n">max_features</span> <span class="o">=</span> <span class="mi">5000</span>
+<span class="p">)</span> 
+
+<span class="c1"># get features</span>
+<span class="n">train_features</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">train_all_content</span><span class="p">)</span>
+<span class="n">test_features</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="p">)</span>
+<span class="c1"># transform format</span>
+<span class="n">train_features</span> <span class="o">=</span> <span class="n">train_features</span><span class="o">.</span><span class="n">toarray</span><span class="p">(</span><span class="p">)</span>
+<span class="n">test_features</span> <span class="o">=</span> <span class="n">test_features</span><span class="o">.</span><span class="n">toarray</span><span class="p">(</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>可以用<code>vectorizer</code>的<code>get_feature_names()</code>方法来看都获取了哪些feature【然后还可以自己构造一个来计算各个feature（也就是词袋中的各属性出现了几次的数据）】</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">(</span><span class="p">)</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>如果使用deeplearning，通过构造RNN来提取具有时序的特征的话，可以更好的建立前后关联
+<ul>
+<li>LSTM</li>
+<li>GRU</li>
+</ul>
+</li>
+</ul>
+<h3 id="5构建model并进行预测">5、构建model并进行预测</h3>
+<ul>
+<li>基本的rf random forest</li>
+<li>用feature数组作为数据集x、用label作为y</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 注意不是RandomForestRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+
+<span class="n">rf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">rf</span> <span class="o">=</span> <span class="n">rf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_features</span><span class="p">,</span> <span class="n">train</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">label</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>predict</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">prediction</span> <span class="o">=</span> <span class="n">rf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_features</span><span class="p">)</span>
+<span class="n">submission</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">id</span><span class="s1">&#39;</span><span class="p">:</span><span class="n">test</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">id</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">label</span><span class="s1">&#39;</span><span class="p">:</span><span class="n">prediction</span><span class="p">}</span><span class="p">)</span>
+<span class="n">submission</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">submission.csv</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Aczy156</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-01-28
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/acm/">ACM</a>
+          <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/test4-feature-engineering%E5%87%A0%E7%A7%8D%E7%BC%96%E7%A0%81/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Test</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/stirling-number/">
+            <span class="next-text nav-default">斯特林(Stirling)數介紹與程式計算(C&#43;&#43;)</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://stackexchange.com/users/18654732/aczy156" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/aczy156" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://www.facebook.com/ac.chen.357/" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/in/%E5%86%89%E9%A3%9E-%E9%99%88-9aa2b51a8/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://github.com/Aczy156" class="iconfont icon-github" title="github"></a>
+      <a href="https://gitlab.com/Aczy156" class="iconfont icon-gitlab" title="gitlab"></a>
+  <a href="/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Aczy156</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+</body>
+</html>
