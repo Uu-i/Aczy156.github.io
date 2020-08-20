@@ -49,7 +49,7 @@
 <meta itemprop="description" content="Feature Engineering&ndash;拼接、拆分数据 1、直接根据数据量拼接、拆分 1 df = pd.concat([train, test]) 用:来分割，:num表示num之前的所有，num:">
 <meta itemprop="datePublished" content="2020-01-28T14:05:44&#43;08:00" />
 <meta itemprop="dateModified" content="2020-01-28T14:05:44&#43;08:00" />
-<meta itemprop="wordCount" content="483">
+<meta itemprop="wordCount" content="668">
 
 
 
@@ -138,8 +138,8 @@
             <a href="/categories/%E6%8A%80%E8%83%BD/"> 技能 </a>
             <a href="/categories/%E7%AE%97%E6%B3%95/"> 算法 </a>
             </div>
-          <span class="more-meta"> 483 words </span>
-          <span class="more-meta"> 1 min read </span>
+          <span class="more-meta"> 668 words </span>
+          <span class="more-meta"> 2 mins read </span>
         
       </div>
     </header>
@@ -152,6 +152,7 @@
     <li><a href="#feature-engineering--拼接拆分数据">Feature Engineering&ndash;拼接、拆分数据</a></li>
     <li><a href="#feature-engineering--one-hot-encoding">Feature Engineering&ndash;One-hot Encoding</a></li>
     <li><a href="#feature-engineering--delete-duplicated-attribute">Feature Engineering&ndash;Delete Duplicated attribute</a></li>
+    <li><a href="#feature-engineering--extract-some">Feature Engineering&ndash;Extract some</a></li>
   </ul>
 </nav>
   </div>
@@ -266,6 +267,22 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="p">:</span><span class="p">,</span> <span class="o">~</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="p">)</span><span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>用iloc的意思就是通过索引index来作为参数，提取的依据。</p>
+<h2 id="feature-engineering--extract-some">Feature Engineering&ndash;Extract some</h2>
+<p>典型例子：</p>
+<ul>
+<li>titanic 中的用户名中，可以拆出Mrs, Mr……等，作为一个新的属性</li>
+<li>Predict Feature Sale中，可以从Shop表中的shop_name属性中拆出城市的名字作为一个新的属性，可以从Category表中的type等，拆除新的属性来。</li>
+</ul>
+<p>方法1:直接一句话搞定，split分割、map映射、lambda进行填入</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">shops</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">newAttr</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">shops</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">oriAttr</span><span class="s1">&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1"> </span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div>

@@ -191,5 +191,23 @@
       <description>NLP 1、数据清洗 data cleaning 清洗html中的残留的tag：BeautifulSoup 清洗标点：正则表达式 清洗常用的没有实际意义的词语(a, the)：n</description>
     </item>
     
+    <item>
+      <title>Test</title>
+      <link>/post/test6-cv%E5%9F%BA%E6%9C%AC%E8%BF%87%E7%A8%8B/</link>
+      <pubDate>Tue, 28 Jan 2020 14:05:44 +0800</pubDate>
+      
+      <guid>/post/test6-cv%E5%9F%BA%E6%9C%AC%E8%BF%87%E7%A8%8B/</guid>
+      <description>CV-数据增强 数据为非图形化的数据「本身不是图片」 例如Digit Recognization，通过把所有像素点放进了表格里边 数据为图形化的数据</description>
+    </item>
+    
+    <item>
+      <title>Test</title>
+      <link>/post/test7-%E7%BB%BC%E5%90%88%E6%80%A7-credit_card-anomly_detection/</link>
+      <pubDate>Tue, 28 Jan 2020 14:05:44 +0800</pubDate>
+      
+      <guid>/post/test7-%E7%BB%BC%E5%90%88%E6%80%A7-credit_card-anomly_detection/</guid>
+      <description>Credit Card Frauds Detection 处理样本分布不均问题：Imbalance Datasets distribution 几种可行的解决方案： 采样方法 under-sampling 欠采样 over-sampling 过采样 集成学习+阈值调整 * 根据不同的种类来区分颜色</description>
+    </item>
+    
   </channel>
 </rss>

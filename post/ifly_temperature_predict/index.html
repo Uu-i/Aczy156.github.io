@@ -49,7 +49,7 @@
 <meta itemprop="description" content="描述 随着计算机技术的发展，我国逐渐实现了从传统农业到现代农业的转变，正逐步迈向智慧农业。温室是现代农业技术应用的典型场景，其内部环境具有可操">
 <meta itemprop="datePublished" content="2020-01-28T14:05:44&#43;08:00" />
 <meta itemprop="dateModified" content="2020-01-28T14:05:44&#43;08:00" />
-<meta itemprop="wordCount" content="2694">
+<meta itemprop="wordCount" content="2782">
 
 
 
@@ -138,7 +138,7 @@
             <a href="/categories/%E6%8A%80%E8%83%BD/"> 技能 </a>
             <a href="/categories/%E7%AE%97%E6%B3%95/"> 算法 </a>
             </div>
-          <span class="more-meta"> 2694 words </span>
+          <span class="more-meta"> 2782 words </span>
           <span class="more-meta"> 6 mins read </span>
         
       </div>
@@ -264,6 +264,41 @@
     <span class="c1"># value&#39;s null</span>
     <span class="n">null_cnt</span> <span class="o">=</span> <span class="p">[</span><span class="nb">sum</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
     <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">data all attribute count null:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">null_cnt</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">cnt null</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="p">)</span>  
+</code></pre></td></tr></table>
+</div>
+</div><p>修改版</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">show_info</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">is_matrix_transpose</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="p">:</span>
+    <span class="c1"># basic shape</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">data shape is: {}   sample number {}   attribute number {}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="p">)</span><span class="p">)</span>
+    <span class="c1"># attribute(key)</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">data columns number {}  </span><span class="se">\n</span><span class="s1">all columns: {}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="p">,</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="p">)</span>
+    <span class="c1"># value&#39;s null</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">data all attribute count null:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="p">)</span><span class="p">)</span>
+    <span class="c1"># data value analysis and data demo</span>
+    <span class="k">if</span> <span class="n">is_matrix_transpose</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">data value analysis: </span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">data demo without matrix transpose: </span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">data value analysis: </span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="p">)</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">data demo without matrix transpose: </span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="p">)</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
