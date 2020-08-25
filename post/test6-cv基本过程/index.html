@@ -49,7 +49,7 @@
 <meta itemprop="description" content="CV-数据增强 数据为非图形化的数据「本身不是图片」 例如Digit Recognization，通过把所有像素点放进了表格里边 数据为图形化的数据">
 <meta itemprop="datePublished" content="2020-01-28T14:05:44&#43;08:00" />
 <meta itemprop="dateModified" content="2020-01-28T14:05:44&#43;08:00" />
-<meta itemprop="wordCount" content="225">
+<meta itemprop="wordCount" content="281">
 
 
 
@@ -138,7 +138,7 @@
             <a href="/categories/%E6%8A%80%E8%83%BD/"> 技能 </a>
             <a href="/categories/%E7%AE%97%E6%B3%95/"> 算法 </a>
             </div>
-          <span class="more-meta"> 225 words </span>
+          <span class="more-meta"> 281 words </span>
           <span class="more-meta"> 1 min read </span>
         
       </div>
@@ -170,10 +170,30 @@
 <li>例如Facial Keypoints Detection，通过对已经是图片的进行变形。</li>
 <li>变形包括：
 <ul>
-<li>水平翻转 horizontal flip（可以进行镜像对称）</li>
+<li>垂直镜像对称 mirroring on vertical axis</li>
+<li>旋转类 rotation
+<ul>
+<li>水平翻转 horizontal flip</li>
 <li>旋转增强 rotation augmentation</li>
+</ul>
+</li>
+<li>色彩转换 color shifting
+<ul>
 <li>亮度增强 brightness augmentation</li>
+<li>RGB变化 RGB shifting (PCA采样，AlexNet PCA色彩增强)</li>
+</ul>
+</li>
+<li>剪裁类 shearing
+<ul>
 <li>转移/移动增强 shifit agumentation</li>
+<li>随机剪裁 random cropping</li>
+</ul>
+</li>
+<li>变形类 warping
+<ul>
+<li>局部变形 local warping</li>
+</ul>
+</li>
 <li>随机噪声增强 random-noise augmentation</li>
 </ul>
 </li>

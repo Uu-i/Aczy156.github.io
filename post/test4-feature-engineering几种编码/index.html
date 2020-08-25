@@ -49,7 +49,7 @@
 <meta itemprop="description" content="Feature Engineering&ndash;拼接、拆分数据 1、直接根据数据量拼接、拆分 1 df = pd.concat([train, test]) 用:来分割，:num表示num之前的所有，num:">
 <meta itemprop="datePublished" content="2020-01-28T14:05:44&#43;08:00" />
 <meta itemprop="dateModified" content="2020-01-28T14:05:44&#43;08:00" />
-<meta itemprop="wordCount" content="1811">
+<meta itemprop="wordCount" content="1840">
 
 
 
@@ -138,7 +138,7 @@
             <a href="/categories/%E6%8A%80%E8%83%BD/"> 技能 </a>
             <a href="/categories/%E7%AE%97%E6%B3%95/"> 算法 </a>
             </div>
-          <span class="more-meta"> 1811 words </span>
+          <span class="more-meta"> 1840 words </span>
           <span class="more-meta"> 4 mins read </span>
         
       </div>
@@ -296,7 +296,18 @@
 </code></pre></td></tr></table>
 </div>
 </div><p>2、通过<code>sklearn.preprocessing</code>下的<code>OneHotEncoder</code>方法。（这个方法的使用类似于LabelEncoder的使用，同样也是sklearn,preprocessing下的方法）</p>
-<h3 id="labelencoder">LabelEncoder</h3>
+<p>3、通过<code>to_categorical</code>方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">keras.utils</span> <span class="kn">import</span> <span class="n">to_cateogorical</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">to_categorical</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="labelencoder">LabelEncoder</h3>
 <p>然后通过<code>LabelEncoder()</code>中的<code>fit_transform</code>方法进行编码(是对属性中的同一类值编一样的码值)</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
